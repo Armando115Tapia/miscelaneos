@@ -11,6 +11,7 @@
   Hola mundo
 </h3>
 
+
 <button
       (click)="propiedades.danger = !propiedades.danger"
       type="button"
@@ -20,3 +21,29 @@
       >
 
       Cambiar</button>
+
+
+      <h2 [ngClass]="{'text-danger': empleado, 'text-info': !empleado}">Cabecera</h2>
+      <button
+              (click)="empleado = !empleado"
+              [ngClass]="{'btn-outline-primary': !empleado, 'btn-outline-danger': empleado}"
+              class ="btn"> Cambiar </button>
+
+<br> <br>
+<h3>Proceso asincrono</h3>
+<button
+    (click)="ejecutar()"
+    type="button"
+    name="button"
+    class="btn btn-outline-primary"
+    [disabled]="loading"
+    >
+  <i
+      [ngClass]="{'fa-save': !loading, 'fa-sync fa-spin': loading}"
+      class="fas"></i>
+  <span *ngIf="!loading"> Guardar Cambios</span>
+  <span *ngIf="loading"> Espere por favor...</span>
+</button>
+
+
+
